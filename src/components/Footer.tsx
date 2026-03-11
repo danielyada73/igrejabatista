@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="space-y-6">
           <div className="flex items-center gap-2">
             <img 
-              src="/favicon-ibbj.png" 
+              src="/favicon.png" 
               alt="Logo IBBJ" 
               className="w-10 h-10 object-contain"
               referrerPolicy="no-referrer"
