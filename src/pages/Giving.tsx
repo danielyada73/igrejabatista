@@ -18,7 +18,7 @@ export default function Giving() {
       <PageHero 
         title="Dízimos e Ofertas" 
         subtitle="Contribuindo com alegria para a obra do Senhor."
-        image="https://picsum.photos/seed/generosity/1920/1080"
+        image="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop"
         alt="Representação visual de generosidade e gratidão a Deus através dos dízimos e ofertas."
       />
       

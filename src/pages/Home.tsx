@@ -39,6 +39,7 @@ export default function Home() {
             alt="Interior solene da Igreja Batista Bíblica em Joinville"
             className="w-full h-full object-cover brightness-50"
           />
+          <div className="absolute inset-0 bg-brand-primary/70"></div>
         </div>
         
         <div className="relative z-10 text-center px-6 max-w-4xl">

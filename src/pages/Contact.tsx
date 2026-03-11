@@ -48,7 +48,7 @@ export default function Contact() {
       <PageHero 
         title="Contato" 
         subtitle="Estamos aqui para ouvir você."
-        image="https://picsum.photos/seed/church-building/1920/1080"
+        image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2000&auto=format&fit=crop"
         alt="Fachada ou entrada receptiva, convidando para os cultos da Igreja Batista Bíblica em Joinville."
       />
       
