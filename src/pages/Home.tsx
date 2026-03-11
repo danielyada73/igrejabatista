@@ -41,7 +41,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-brand-primary/70"></div>
         </div>
-        
+
         <div className="relative z-10 text-center px-6 max-w-4xl">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -52,16 +52,16 @@ export default function Home() {
             Igreja Batista Bíblica em Joinville: <br />
             <span className="italic font-light">Fiel à Palavra, Focada em Cristo</span>
           </motion.h1>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-stone-200 mb-10 font-light tracking-wide max-w-3xl mx-auto"
           >
-            Fundamentada em uma Bíblia sobrenatural, que fala de um Cristo sobrenatural, de nascimento, vida e ressurreição sobrenaturais.
+            Uma Bíblia divina, um Cristo eterno, nascido de virgem, vivido em santidade, ressuscitado em glória.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,14 +102,14 @@ export default function Home() {
             </div>
           </div>
           <div className="flex-1 grid grid-cols-2 gap-4">
-            <img 
-              src={pastorLuiz} 
-              alt="Pr. Luiz Carlos Gomes" 
+            <img
+              src={pastorLuiz}
+              alt="Pr. Luiz Carlos Gomes"
               className="rounded-2xl shadow-lg aspect-[3/4] object-cover"
             />
-            <img 
-              src={pastorEdgar} 
-              alt="Pr. Edgar Sandri" 
+            <img
+              src={pastorEdgar}
+              alt="Pr. Edgar Sandri"
               className="rounded-2xl shadow-lg aspect-[3/4] object-cover mt-8"
             />
           </div>
@@ -133,7 +133,7 @@ export default function Home() {
                 Escola Bíblica Dominical. O momento dedicado ao ensino sistemático das Escrituras para todas as idades.
               </p>
             </div>
-            
+
             <div className="p-8 bg-stone-50 rounded-3xl border border-stone-100 hover:shadow-xl transition-all">
               <div className="w-12 h-12 bg-brand-secondary rounded-2xl flex items-center justify-center text-brand-primary mb-6">
                 <Clock size={24} />
@@ -203,9 +203,9 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex-1 relative">
-            <img 
-              src={heroImage} 
-              alt="Legado IBBJ" 
+            <img
+              src={heroImage}
+              alt="Legado IBBJ"
               className="rounded-[3rem] shadow-2xl"
             />
             <div className="absolute -bottom-6 -left-6 bg-brand-accent text-brand-primary p-8 rounded-3xl shadow-xl hidden md:block">
@@ -259,7 +259,7 @@ export default function Home() {
 
           <div className="relative">
             <div className="flex gap-6 overflow-hidden py-10">
-              <motion.div 
+              <motion.div
                 className="flex gap-6"
                 animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 1.5}rem)` }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -267,9 +267,8 @@ export default function Home() {
                 {videos.map((src, index) => (
                   <motion.div
                     key={index}
-                    className={`relative shrink-0 w-full md:w-[70%] aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 transition-all duration-500 ${
-                      activeIndex === index ? 'border-brand-primary scale-105' : 'border-transparent opacity-50 grayscale scale-95'
-                    }`}
+                    className={`relative shrink-0 w-full md:w-[70%] aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 transition-all duration-500 ${activeIndex === index ? 'border-brand-primary scale-105' : 'border-transparent opacity-50 grayscale scale-95'
+                      }`}
                   >
                     <video
                       ref={(el) => (videoRefs.current[index] = el)}
@@ -280,9 +279,9 @@ export default function Home() {
                       autoPlay
                       playsInline
                     />
-                    
+
                     {/* Overlay de Controle */}
-                    <div 
+                    <div
                       className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
                       onClick={() => setIsMuted(!isMuted)}
                     >
@@ -307,14 +306,13 @@ export default function Home() {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    activeIndex === index ? 'bg-brand-primary w-8' : 'bg-stone-300'
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all ${activeIndex === index ? 'bg-brand-primary w-8' : 'bg-stone-300'
+                    }`}
                   aria-label={`Ir para vídeo ${index + 1}`}
                 />
               ))}
             </div>
-            
+
             <div className="flex justify-center mt-12">
               <button
                 onClick={() => setIsMuted(!isMuted)}
