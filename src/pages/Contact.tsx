@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 
 const WhatsAppIcon = () => (
@@ -10,16 +11,36 @@ const WhatsAppIcon = () => (
 );
 
 export default function Contact() {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-  const [isSent, setIsSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // Simulate sending
-    console.log('Sending to contato@ibbjoinville.com.br', formState);
-    setIsSent(true);
-    setTimeout(() => setIsSent(false), 5000);
-    setFormState({ name: '', email: '', message: '' });
+    setIsSending(true);
+    setErrorMessage('');
+    
+    try {
+      // Tenta enviar via rota da Vercel
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState)
+      });
+      
+      if (response.ok) {
+        navigate('/thank-you');
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro ao enviar a mensagem');
+      }
+    } catch (error: any) {
+      console.error('Submit error:', error);
+      setErrorMessage(error.message || 'Ocorreu um erro ao enviar. Por favor, tente novamente mais tarde.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -123,19 +144,23 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-brand-primary text-white py-5 rounded-2xl font-bold text-lg hover:bg-brand-primary/90 transition-all shadow-lg hover:shadow-brand-primary/20 flex items-center justify-center gap-3"
+                disabled={isSending}
+                className="w-full bg-brand-primary text-white py-5 rounded-2xl font-bold text-lg hover:bg-brand-primary/90 transition-all shadow-lg hover:shadow-brand-primary/20 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send size={20} />
-                Enviar Mensagem
+                {isSending ? (
+                  <> <Loader2 className="animate-spin" size={20} /> Entregando... </>
+                ) : (
+                  <> <Send size={20} /> Enviar Mensagem </>
+                )}
               </button>
               
-              {isSent && (
+              {errorMessage && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-emerald-50 text-emerald-700 rounded-xl text-center font-medium"
+                  className="p-4 bg-red-50 text-red-700 rounded-xl text-center font-medium"
                 >
-                  Mensagem enviada com sucesso! Entraremos em contato em breve.
+                  {errorMessage}
                 </motion.div>
               )}
             </form>

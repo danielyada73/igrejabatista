@@ -8,6 +8,7 @@ import Doctrine from './pages/Doctrine';
 import Ministries from './pages/Ministries';
 import Giving from './pages/Giving';
 import Contact from './pages/Contact';
+import ThankYou from './pages/ThankYou';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/ministries" element={<Ministries />} />
             <Route path="/giving" element={<Giving />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/thank-you" element={<ThankYou />} />
           </Routes>
         </main>
         <Footer />

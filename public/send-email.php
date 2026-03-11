@@ -1,26 +1,24 @@
 <?php
 header('Content-Type: application/json');
 
-// Carregar variáveis de ambiente ou usar as configuradas no servidor
-$smtp_user = getenv('SMTP_USER');
-$smtp_pass = getenv('SMTP_PASS');
+// Destinatários solicitados
+$to = "contato@ibbjoinville.com.br, contato.yadastudio@gmail.com";
+$subject = "Novo Contato - Site IBBJ";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
     
     $name = $input['name'] ?? 'Não informado';
     $email = $input['email'] ?? 'Não informado';
-    $subject_input = $input['subject'] ?? 'Formulário de Contato - IBBJ';
     $message_content = $input['message'] ?? '';
-
-    $to = "contato@ibbjoinville.com.br"; // Altere para o e-mail de destino
-    $subject = "Novo Contato: " . $subject_input;
     
-    $body = "Nome: $name\n";
+    $body = "Novo contato recebido através do site IBBJ:\n\n";
+    $body .= "Nome: $name\n";
     $body .= "Email: $email\n\n";
-    $body .= "Mensagem:\n$message_content";
+    $body .= "Mensagem:\n$message_content\n\n";
+    $body .= "--- \nEnviado em: " . date('d/m/Y H:i:s');
     
-    $headers = "From: $email" . "\r\n" .
+    $headers = "From: contato@ibbjoinville.com.br" . "\r\n" .
                "Reply-To: $email" . "\r\n" .
                "X-Mailer: PHP/" . phpversion();
 
@@ -28,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['success' => true, 'message' => 'E-mail enviado com sucesso!']);
     } else {
         http_response_code(500);
-        echo json_encode(['success' => false, 'message' => 'Falha ao enviar e-mail.']);
+        echo json_encode(['success' => false, 'message' => 'Falha ao enviar e-mail. Verifique a configuração do servidor.']);
     }
 } else {
     http_response_code(405);
