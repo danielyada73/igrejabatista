@@ -1,8 +1,21 @@
-import { motion } from 'motion/react';
-import { Youtube, MapPin, ArrowRight, Calendar, Clock } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Youtube, MapPin, ArrowRight, Calendar, Clock, Volume2, VolumeX, Play, Pause } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+
+// Carregar vídeos dinamicamente
+const videoModules = import.meta.glob('../lib/todas as fotos e vídeos/*.mp4', { eager: true });
+const videos = Object.values(videoModules).map((mod: any) => mod.default);
 
 export default function Home() {
+  const [isMuted, setIsMuted] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    videoRefs.current = videoRefs.current.slice(0, videos.length);
+  }, []);
+
   const scrollToMap = () => {
     const element = document.getElementById('location');
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -224,6 +237,88 @@ export default function Home() {
           </div>
           <div className="text-center mt-12">
             <Link to="/ministries" className="text-brand-primary font-bold hover:underline">Ver todos os ministérios</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Carrossel de Vídeos */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-brand-primary mb-4">Nossa Vida em Vídeo</h2>
+            <p className="text-stone-500">Momentos especiais e mensagens de nossa comunidade.</p>
+          </div>
+
+          <div className="relative">
+            <div className="flex gap-6 overflow-hidden py-10">
+              <motion.div 
+                className="flex gap-6"
+                animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 1.5}rem)` }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                {videos.map((src, index) => (
+                  <motion.div
+                    key={index}
+                    className={`relative shrink-0 w-full md:w-[70%] aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 transition-all duration-500 ${
+                      activeIndex === index ? 'border-brand-primary scale-105' : 'border-transparent opacity-50 grayscale scale-95'
+                    }`}
+                  >
+                    <video
+                      ref={(el) => (videoRefs.current[index] = el)}
+                      src={src}
+                      className="w-full h-full object-cover"
+                      loop
+                      muted={isMuted}
+                      autoPlay
+                      playsInline
+                    />
+                    
+                    {/* Overlay de Controle */}
+                    <div 
+                      className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
+                      onClick={() => setIsMuted(!isMuted)}
+                    >
+                      <div className="bg-white/20 backdrop-blur-md p-6 rounded-full border border-white/30 text-white">
+                        {isMuted ? <VolumeX size={32} /> : <Volume2 size={32} />}
+                      </div>
+                    </div>
+
+                    {isMuted && activeIndex === index && (
+                      <div className="absolute bottom-6 right-6 bg-brand-primary/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 pointer-events-none">
+                        <VolumeX size={16} /> Clique para Ativar Áudio
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Navegação do Carrossel */}
+            <div className="flex justify-center gap-4 mt-8">
+              {videos.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    activeIndex === index ? 'bg-brand-primary w-8' : 'bg-stone-300'
+                  }`}
+                  aria-label={`Ir para vídeo ${index + 1}`}
+                />
+              ))}
+            </div>
+            
+            <div className="flex justify-center mt-12">
+              <button
+                onClick={() => setIsMuted(!isMuted)}
+                className="bg-brand-secondary text-brand-primary px-8 py-3 rounded-full font-bold flex items-center gap-3 hover:bg-brand-primary hover:text-white transition-all shadow-md"
+              >
+                {isMuted ? (
+                  <> <Volume2 size={20} /> Ativar Som de Todos </>
+                ) : (
+                  <> <VolumeX size={20} /> Mutar Todos </>
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </section>

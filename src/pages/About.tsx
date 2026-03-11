@@ -1,4 +1,6 @@
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import { useState } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
 const timeline = [
@@ -27,7 +29,13 @@ const collaborators = [
   'Pr. Fernando Cunha dos Santos (2016 – 2022)'
 ];
 
+// Carregar todas as fotos do diretório especificado
+const imageModules = import.meta.glob('../lib/todas as fotos e vídeos/*.{jpeg,jpg,png}', { eager: true });
+const photos = Object.values(imageModules).map((mod: any) => mod.default);
+
 export default function About() {
+  const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
+
   return (
     <div className="pt-20">
       <PageHero 
@@ -121,6 +129,84 @@ export default function About() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Galeria de Fotos */}
+        <section className="mt-32">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif mb-4">Galeria de Fotos</h2>
+            <p className="text-stone-500">Registros de nossa jornada e comunhão.</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {photos.map((photo, index) => (
+              <motion.div
+                key={index}
+                layoutId={`photo-${index}`}
+                whileHover={{ scale: 1.02 }}
+                className="relative aspect-square cursor-pointer overflow-hidden rounded-2xl shadow-sm"
+                onClick={() => setSelectedPhoto(index)}
+              >
+                <img
+                  src={photo}
+                  alt={`Foto da igreja ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          <AnimatePresence>
+            {selectedPhoto !== null && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 md:p-10"
+                onClick={() => setSelectedPhoto(null)}
+              >
+                <button 
+                  className="absolute top-6 right-6 text-white hover:text-stone-300 transition-colors"
+                  onClick={(e) => { e.stopPropagation(); setSelectedPhoto(null); }}
+                >
+                  <X size={40} />
+                </button>
+
+                <button 
+                  className="absolute left-4 text-white hover:text-stone-300 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedPhoto((prev) => (prev !== null ? (prev - 1 + photos.length) % photos.length : null));
+                  }}
+                >
+                  <ChevronLeft size={48} />
+                </button>
+
+                <motion.img
+                  key={selectedPhoto}
+                  layoutId={`photo-${selectedPhoto}`}
+                  src={photos[selectedPhoto]}
+                  alt="Foto ampliada"
+                  className="max-w-full max-h-full object-contain rounded-lg"
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                  onClick={(e) => e.stopPropagation()}
+                />
+
+                <button 
+                  className="absolute right-4 text-white hover:text-stone-300 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedPhoto((prev) => (prev !== null ? (prev + 1) % photos.length : null));
+                  }}
+                >
+                  <ChevronRight size={48} />
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </section>
       </div>
     </div>
