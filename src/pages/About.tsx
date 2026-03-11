@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
+import pastorLuiz from '../lib/media/Pr. Luiz Carlos Gomes.jpeg';
+import pastorEdgar from '../lib/media/Pr. Edgar kühn Sandri.jpeg';
+
 const timeline = [
   { year: '1985', title: 'Início do Trabalho', description: 'O Pastor Armenius Clinton Holcomb inicia o trabalho Batista Bíblico em Joinville através de um ponto de pregação na Rua Lages, 338.' },
   { year: '1989', title: 'Mudança para o Saguaçú', description: 'Transferência do trabalho para a Rua Iririú, 1330, no bairro Saguaçú.' },
@@ -12,8 +15,8 @@ const timeline = [
 ];
 
 const pastors = [
-  { name: 'Pr. Luiz Carlos Gomes', role: 'Pastor Presidente (2022 - Presente)', image: 'https://picsum.photos/seed/pastor-luiz/600/600' },
-  { name: 'Pr. Edgar Kühn Sandri', role: 'Pastor Emérito', image: 'https://picsum.photos/seed/pastor-edgar/600/600' },
+  { name: 'Pr. Luiz Carlos Gomes', role: 'Pastor Presidente (2022 - Presente)', image: pastorLuiz },
+  { name: 'Pr. Edgar Kühn Sandri', role: 'Pastor Emérito', image: pastorEdgar },
 ];
 
 const collaborators = [
@@ -30,7 +33,7 @@ const collaborators = [
 ];
 
 // Carregar todas as fotos do diretório especificado
-const imageModules = import.meta.glob('../lib/todas as fotos e vídeos/*.{jpeg,jpg,png}', { eager: true });
+const imageModules = import.meta.glob('../lib/media/*.{jpeg,jpg,png}', { eager: true });
 const photos = Object.values(imageModules).map((mod: any) => mod.default);
 
 export default function About() {

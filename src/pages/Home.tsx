@@ -3,8 +3,16 @@ import { Youtube, MapPin, ArrowRight, Calendar, Clock, Volume2, VolumeX, Play, P
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
+// Importar imagens específicas
+import pastorLuiz from '../lib/media/Pr. Luiz Carlos Gomes.jpeg';
+import pastorEdgar from '../lib/media/Pr. Edgar kühn Sandri.jpeg';
+import liderRita from '../lib/media/Rita, líder da União Feminina..jpeg';
+import liderJoici from '../lib/media/O nome da lider do coral é Joici.jpeg';
+import liderJovens from '../lib/media/Líder dos adolescentes e jovens.jpeg';
+import heroImage from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.34 (3).jpeg';
+
 // Carregar vídeos dinamicamente
-const videoModules = import.meta.glob('../lib/todas as fotos e vídeos/*.mp4', { eager: true });
+const videoModules = import.meta.glob('../lib/media/*.mp4', { eager: true });
 const videos = Object.values(videoModules).map((mod: any) => mod.default);
 
 export default function Home() {
@@ -27,10 +35,9 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://picsum.photos/seed/church-interior/1920/1080"
+            src={heroImage}
             alt="Interior solene da Igreja Batista Bíblica em Joinville"
             className="w-full h-full object-cover brightness-50"
-            referrerPolicy="no-referrer"
           />
         </div>
         
@@ -95,16 +102,14 @@ export default function Home() {
           </div>
           <div className="flex-1 grid grid-cols-2 gap-4">
             <img 
-              src="https://picsum.photos/seed/pastor-luiz/600/800" 
+              src={pastorLuiz} 
               alt="Pr. Luiz Carlos Gomes" 
               className="rounded-2xl shadow-lg aspect-[3/4] object-cover"
-              referrerPolicy="no-referrer"
             />
             <img 
-              src="https://picsum.photos/seed/pastor-edgar/600/800" 
+              src={pastorEdgar} 
               alt="Pr. Edgar Sandri" 
               className="rounded-2xl shadow-lg aspect-[3/4] object-cover mt-8"
-              referrerPolicy="no-referrer"
             />
           </div>
         </div>
@@ -198,10 +203,9 @@ export default function Home() {
           </div>
           <div className="flex-1 relative">
             <img 
-              src="https://picsum.photos/seed/church-legacy/800/1000" 
+              src={heroImage} 
               alt="Legado IBBJ" 
               className="rounded-[3rem] shadow-2xl"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute -bottom-6 -left-6 bg-brand-accent text-brand-primary p-8 rounded-3xl shadow-xl hidden md:block">
               <p className="text-4xl font-serif font-bold">1985</p>
@@ -219,17 +223,20 @@ export default function Home() {
             <p className="text-stone-500">Ministérios e Vida em Comunidade.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center">
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
+              <img src={liderRita} alt="Rita" className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-brand-primary" />
               <h3 className="text-xl font-serif font-bold mb-2">União Feminina</h3>
               <p className="text-brand-primary text-sm font-bold mb-4">Líder: Rita</p>
               <p className="text-stone-600 text-sm leading-relaxed">Liderada pela irmã Rita, focada no fortalecimento espiritual e comunhão das mulheres.</p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center">
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
+              <img src={liderJoici} alt="Joici" className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-brand-primary" />
               <h3 className="text-xl font-serif font-bold mb-2">Música e Coral</h3>
               <p className="text-brand-primary text-sm font-bold mb-4">Líder: Joici</p>
               <p className="text-stone-600 text-sm leading-relaxed">Sob a liderança de Joici e equipe, dedicados a glorificar a Deus através dos hinos e cânticos espirituais.</p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center">
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
+              <img src={liderJovens} alt="Liderança Jovem" className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-brand-primary" />
               <h3 className="text-xl font-serif font-bold mb-2">Jovens e Adolescentes</h3>
               <p className="text-brand-primary text-sm font-bold mb-4">Liderança Jovem</p>
               <p className="text-stone-600 text-sm leading-relaxed">Preparando a próxima geração para um testemunho cristão íntegro e corajoso.</p>
