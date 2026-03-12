@@ -20,7 +20,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/home">
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Navbar />

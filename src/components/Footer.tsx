@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Facebook, Instagram, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="space-y-6">
           <div className="flex items-center gap-2">
             <img 
-              src="/favicon.png" 
+              src={logo} 
               alt="Logo IBBJ" 
               className="w-10 h-10 object-contain"
               referrerPolicy="no-referrer"

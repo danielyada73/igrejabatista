@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
+import logo from '../assets/logo.png';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -34,7 +35,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
           <img 
-            src="/favicon.png" 
+            src={logo} 
             alt="Logo IBBJ" 
             className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
             referrerPolicy="no-referrer"
