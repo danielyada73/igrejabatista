@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
 // Importar imagens específicas
-import pastorLuiz from '../lib/media/Pr. Luiz Carlos Gomes.jpeg';
-import pastorEdgar from '../lib/media/Pr. Edgar kühn Sandri.jpeg';
-import liderRita from '../lib/media/Rita, líder da União Feminina..jpeg';
-import liderJoici from '../lib/media/O nome da lider do coral é Joici.jpeg';
-import liderJovens from '../lib/media/Líder dos adolescentes e jovens.jpeg';
+import pastorLuiz from '../lib/media/pastor-luiz.jpeg';
+import pastorEdgar from '../lib/media/pastor-edgar.jpeg';
+import liderRita from '../lib/media/lider-rita.jpeg';
+import liderJoici from '../lib/media/lider-joici.jpeg';
+import liderJovens from '../lib/media/lider-jovens.jpeg';
 import heroImage from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.34 (3).jpeg';
 
 // Carregar vídeos dinamicamente
