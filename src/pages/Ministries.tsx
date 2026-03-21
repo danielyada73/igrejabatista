@@ -3,17 +3,17 @@ import { Users, Music, Heart } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
 // Importar fotos dos líderes e capas
-import liderRita from '../lib/media/Rita, líder da União Feminina..jpeg';
-import liderJoici from '../lib/media/O nome da lider do coral é Joici.jpeg';
-import liderPaulo from '../lib/media/Esse é o líder do ministério da música.jpeg';
-import liderJovens from '../lib/media/Líder dos adolescentes e jovens.jpeg';
+import liderRita from '../lib/media/lider-rita.jpeg';
+import liderJoici from '../lib/media/lider-joici.jpeg';
+import liderPaulo from '../lib/media/lider-paulo.jpeg';
+import liderJovens from '../lib/media/lider-jovens.jpeg';
 
 // Fotos de capa temáticas (usando imagens da biblioteca ou representativas)
-import capaUniao from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.29.jpeg';
-import capaCoral from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.31.jpeg';
-import capaMusica from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.31 (1).jpeg';
-import capaJovens from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.33.jpeg';
-import capaAlemao from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.35.jpeg';
+import capaUniao from '../lib/media/capa-uniao.jpeg';
+import capaCoral from '../lib/media/capa-coral.jpeg';
+import capaMusica from '../lib/media/capa-musica.jpeg';
+import capaJovens from '../lib/media/capa-jovens.jpeg';
+import capaAlemao from '../lib/media/capa-alemao.jpeg';
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">

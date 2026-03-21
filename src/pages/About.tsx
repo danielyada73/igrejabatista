@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
-import pastorLuiz from '../lib/media/Pr. Luiz Carlos Gomes.jpeg';
-import pastorEdgar from '../lib/media/Pr. Edgar kühn Sandri.jpeg';
+import pastorLuiz from '../lib/media/pastor-luiz.jpeg';
+import pastorEdgar from '../lib/media/pastor-edgar.jpeg';
 
 const timeline = [
   { year: '1985', title: 'Início do Trabalho', description: 'O missionário Armenius C. Holcomb e família iniciaram este trabalho Batista Bíblico em Joinville através de um ponto de pregação na Rua Lages, 338.' },
