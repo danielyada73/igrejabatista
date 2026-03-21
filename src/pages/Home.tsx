@@ -9,6 +9,7 @@ import pastorEdgar from '../lib/media/pastor-edgar.jpeg';
 import liderRita from '../lib/media/lider-rita.jpeg';
 import liderJoici from '../lib/media/lider-joici.jpeg';
 import liderJovens from '../lib/media/lider-jovens.jpeg';
+import liderPaulo from '../lib/media/lider-paulo.jpeg';
 import heroImage from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.34 (3).jpeg';
 
 // Carregar vídeos dinamicamente
@@ -97,8 +98,8 @@ export default function Home() {
               "Seja bem-vindo à IBBJ. Nossa missão, estabelecida pela Grande Comissão, é fazer discípulos, edificar a igreja e ensinar tudo o que o Senhor ordenou. Aqui, você encontrará uma congregação governada pelas leis de Cristo, exercendo os dons e privilégios da Sua Palavra".
             </p>
             <div className="pt-4 space-y-2">
-              <p className="font-bold text-brand-primary">Pr. Luiz Carlos Gomes <span className="font-normal text-stone-500">— Pastor Presidente</span></p>
-              <p className="font-bold text-brand-primary">Pr. Edgar Kühn Sandri <span className="font-normal text-stone-500">— Pastor Emérito</span></p>
+              <p className="font-bold text-brand-primary">Pr. Edgar Kühn Sandri <span className="font-normal text-stone-500">— Pastor Presidente</span></p>
+              <p className="font-bold text-brand-primary">Pr. Luiz Carlos Gomes <span className="font-normal text-stone-500">— Vice Presidente ou Co-Pastor</span></p>
             </div>
           </div>
           <div className="flex-1 grid grid-cols-2 gap-4">
@@ -192,10 +193,10 @@ export default function Home() {
             <h2 className="text-4xl font-serif text-brand-primary mb-8">Um Legado de Fé em Joinville</h2>
             <div className="space-y-6 text-stone-600 leading-relaxed text-lg">
               <p>
-                "Tudo começou em 1985 com o chamado missionário do Pastor Armenius Clinton Holcomb. O que iniciou como um ponto de pregação no centro de Joinville, floresceu em uma igreja organizada em 1992".
+                Em 1985, iniciou-se este trabalho Batista Bíblico em Joinville através de um ponto de pregação no centro do município, desenvolvendo-se progressivamente até nossa consolidação como igreja organizada em 1992.
               </p>
               <p className="font-serif italic text-brand-primary">
-                "Em 1996, pela graça de Deus, inauguramos nossa sede própria na Rua Brasil, 99, onde permanecemos até hoje, servindo à comunidade de Saguaçú e região".
+                "Em 1996, com a Graça de nosso Senhor Jesus Cristo, inauguramos nossa sede própria na Rua Brasil, no bairro Saguaçú, onde permanecemos até hoje servindo à nossa comunidade".
               </p>
             </div>
             <Link to="/about" className="mt-8 bg-brand-primary text-white px-8 py-3 rounded-full inline-flex items-center gap-2 hover:bg-brand-primary/90 transition-all">
@@ -223,22 +224,28 @@ export default function Home() {
             <h2 className="text-4xl font-serif text-brand-primary mb-4">Onde Você Pode Servir</h2>
             <p className="text-stone-500">Ministérios e Vida em Comunidade.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
               <img src={liderRita} alt="Rita" className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-brand-primary" />
               <h3 className="text-xl font-serif font-bold mb-2">União Feminina</h3>
               <p className="text-brand-primary text-sm font-bold mb-4">Líder: Rita</p>
-              <p className="text-stone-600 text-sm leading-relaxed">Liderada pela irmã Rita, focada no fortalecimento espiritual e comunhão das mulheres.</p>
+              <p className="text-stone-600 text-sm leading-relaxed">Focada no fortalecimento espiritual, estudo e comunhão das mulheres.</p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
               <img src={liderJoici} alt="Joici" className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-brand-primary" />
-              <h3 className="text-xl font-serif font-bold mb-2">Música e Coral</h3>
+              <h3 className="text-xl font-serif font-bold mb-2">Coral</h3>
               <p className="text-brand-primary text-sm font-bold mb-4">Líder: Joici</p>
-              <p className="text-stone-600 text-sm leading-relaxed">Sob a liderança de Joici e equipe, dedicados a glorificar a Deus através dos hinos e cânticos espirituais.</p>
+              <p className="text-stone-600 text-sm leading-relaxed">Dedicados a glorificar a Deus através de hinos, vozes e cânticos espirituais.</p>
             </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
+              <img src={liderPaulo} alt="Paulo" className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-brand-primary" />
+              <h3 className="text-xl font-serif font-bold mb-2">Música</h3>
+              <p className="text-brand-primary text-sm font-bold mb-4">Líder: Paulo</p>
+              <p className="text-stone-600 text-sm leading-relaxed">Adoração através do louvor instrumental e desenvolvimento de talentos.</p>
+            </div>
+            <div className="bg-white p-6 rounded-3xl shadow-sm border border-stone-100 text-center flex flex-col items-center">
               <img src={liderJovens} alt="Liderança Jovem" className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-brand-primary" />
-              <h3 className="text-xl font-serif font-bold mb-2">Jovens e Adolescentes</h3>
+              <h3 className="text-xl font-serif font-bold mb-2">Jovens</h3>
               <p className="text-brand-primary text-sm font-bold mb-4">Liderança Jovem</p>
               <p className="text-stone-600 text-sm leading-relaxed">Preparando a próxima geração para um testemunho cristão íntegro e corajoso.</p>
             </div>

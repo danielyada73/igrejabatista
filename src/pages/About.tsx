@@ -16,7 +16,7 @@ const timeline = [
 
 const pastors = [
   { name: 'Pr. Edgar Kühn Sandri', role: 'Presidente', image: pastorEdgar },
-  { name: 'Pr. Luiz Carlos Gomes', role: 'Vice Presidente ou Co-Pastor', image: pastorLuiz, video: '/WhatsApp Video 2026-03-20 at 16.58.06.mp4' },
+  { name: 'Pr. Luiz Carlos Gomes', role: 'Vice-presidente ou Co-Pastor', image: pastorLuiz, video: '/vídeo-pr-luiz.mp4' },
 ];
 
 const collaborators = [
@@ -55,17 +55,31 @@ export default function About() {
           <h2 className="text-4xl font-serif mb-8">Desde 1985 Servindo ao Senhor</h2>
           <div className="space-y-6 text-stone-600 leading-relaxed text-lg text-justify md:text-left">
             <p>
-              Em 1985, o missionário Armenius C. Holcomb juntamente com sua família, vindos dos Estados Unidos da América, deram início a este trabalho Batista Bíblico em Joinville através de um ponto de pregação. O primeiro local escolhido para realização das reuniões, foi à rua Lages, 338 no centro do município de Joinville.
+              Em 1985, o missionário Armenius C. Holcomb juntamente com sua família, vindos dos Estados Unidos da América, deram início a este trabalho Batista Bíblico em Joinville através de um ponto de pregação.
+              O primeiro local escolhido para realização das reuniões, foi à rua Lages, 338 no centro do município de Joinville.
             </p>
             <p>
-              Quatro anos após ter dado o início aos trabalhos da igreja, no ano de 1989 após muita procura, transferiu o trabalho para rua Iririú, 1330, no bairro Saguaçú, local que permaneceu por apenas um ano, devido a solicitação do imóvel pelo proprietário. Com isso, no ano seguinte (1990), nos mudamos para rua São José dos Cedros, 209, no mesmo bairro, mas já com o foco em adquirirmos uma sede própria.
+              Quatro anos após ter dado o início aos trabalhos da igreja, no ano de 1989 após muita procura, transferiu o trabalho para rua Iririú, 1330, no bairro Saguaçú, local que permaneceu por apenas um ano, devido a solicitação do imóvel pelo proprietário.
+              Com isso, no ano seguinte (1990), nos mudamos para rua São José dos Cedros, 209, no mesmo bairro, mas já com o foco em adquirirmos uma sede própria.
             </p>
             <p>
-              No ano de 1992, entendendo do Senhor ser aquele um momento de amadurecimento devido ao desenvolvimento dos trabalhos, Ele nos despertou a deixamos de ser um ponto de pregação para nos tornamos uma igreja organizada. Com isso demos um passo de fé e adquirimos um terreno onde iniciamos a construção da igreja com o firme propósito de saírmos do aluguel.
+              No ano de 1992, entendendo do Senhor ser aquele um momento de amadurecimento devido ao desenvolvimento dos trabalhos, Ele nos despertou a deixarmos de ser um ponto de pregação para nos tornarmos uma igreja organizada. Com isso demos um passo de fé e adquirimos um terreno onde iniciamos a construção da igreja com o firme propósito de sairmos do aluguel.
             </p>
             <p>
-              Ali permanecemos até fevereiro do ano de 1996, ano em que saímos de mudança definitiva para nossa casa própria e estamos até os dias atuais, situado na rua Brasil, 99 no bairro Saguaçú. Com a Graça de nosso Senhor Jesus Cristo o primeiro templo que construímos para algo em torno de 80 pessoas na época, teve de ser ampliado e hoje temos um templo com a capacidade para 150 pessoas.
+              Ali permanecemos até fevereiro do ano de 1996, ano em que saímos de mudança definitiva para nossa casa própria e estamos até os dias atuais, situado na rua Brasil, 99 no bairro Saguaçú. 
+              Com a Graça de nosso Senhor Jesus Cristo o primeiro templo que construímos para algo em torno de 80 pessoas na época, teve de ser ampliado e hoje temos um templo com a capacidade para 150 pessoas.
             </p>
+
+            <div className="mt-12 rounded-2xl overflow-hidden shadow-xl border-4 border-brand-primary/20 bg-stone-50 max-w-2xl mx-auto">
+              <p className="text-center font-bold text-brand-primary py-3 bg-brand-accent/20">Assista ao vídeo histórico com nosso Pastor</p>
+              <video 
+                src="/vídeo-pr-luiz.mp4" 
+                controls 
+                className="w-full h-auto"
+                preload="metadata"
+                title="Vídeo com a história pela visão pastoral"
+              />
+            </div>
           </div>
         </div>
 
