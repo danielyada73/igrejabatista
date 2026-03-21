@@ -7,16 +7,16 @@ import pastorLuiz from '../lib/media/Pr. Luiz Carlos Gomes.jpeg';
 import pastorEdgar from '../lib/media/Pr. Edgar kühn Sandri.jpeg';
 
 const timeline = [
-  { year: '1985', title: 'Início do Trabalho', description: 'O Pastor Armenius Clinton Holcomb inicia o trabalho Batista Bíblico em Joinville através de um ponto de pregação na Rua Lages, 338.' },
-  { year: '1989', title: 'Mudança para o Saguaçú', description: 'Transferência do trabalho para a Rua Iririú, 1330, no bairro Saguaçú.' },
-  { year: '1990', title: 'Foco na Sede Própria', description: 'Mudança para a Rua São José dos Cedros, 209, com o objetivo de adquirir uma sede própria.' },
-  { year: '1992', title: 'Organização da Igreja', description: 'A igreja deixa de ser um ponto de pregação para se tornar uma igreja organizada. Aquisição do terreno e início da construção.' },
-  { year: '1996', title: 'Sede Própria', description: 'Mudança definitiva para a casa própria na Rua Brasil, 99, onde a igreja permanece até hoje.' },
+  { year: '1985', title: 'Início do Trabalho', description: 'O missionário Armenius C. Holcomb e família iniciaram este trabalho Batista Bíblico em Joinville através de um ponto de pregação na Rua Lages, 338.' },
+  { year: '1989', title: 'Mudança para o Saguaçú', description: 'Transferência do trabalho para a Rua Iririú, 1330, permanecendo por apenas um ano.' },
+  { year: '1990', title: 'Foco na Sede Própria', description: 'Mudança para a Rua São José dos Cedros, 209, com o foco em adquirir uma sede própria.' },
+  { year: '1992', title: 'Organização da Igreja', description: 'A igreja deixa de ser um ponto de pregação para se tornar uma igreja organizada. Aquisição do terreno e início da construção da sede.' },
+  { year: '1996', title: 'Sede Própria', description: 'Mudança definitiva para a casa própria na Rua Brasil, 99. O primeiro templo construído foi posteriormente ampliado para 150 pessoas.' },
 ];
 
 const pastors = [
-  { name: 'Pr. Luiz Carlos Gomes', role: 'Pastor Presidente (2022 - Presente)', image: pastorLuiz },
-  { name: 'Pr. Edgar Kühn Sandri', role: 'Pastor Emérito', image: pastorEdgar },
+  { name: 'Pr. Edgar Kühn Sandri', role: 'Presidente', image: pastorEdgar },
+  { name: 'Pr. Luiz Carlos Gomes', role: 'Vice Presidente ou Co-Pastor', image: pastorLuiz, video: '/WhatsApp Video 2026-03-20 at 16.58.06.mp4' },
 ];
 
 const collaborators = [
@@ -29,7 +29,9 @@ const collaborators = [
   'Ir. Edgar Kühn Sandri (1992 – 1995)',
   'Pr. Salmo de Oliveira Flores (1993)',
   'Pr. Marcos Freire (1994-1995)',
-  'Pr. Fernando Cunha dos Santos (2016 – 2022)'
+  'Pr. Edgar Kühn Sandri',
+  'Pr. Fernando Cunha dos Santos (2016 – 2022)',
+  'Pr. Luiz Carlos Gomes (2022...)'
 ];
 
 // Carregar todas as fotos do diretório especificado
@@ -51,15 +53,18 @@ export default function About() {
       <div className="max-w-7xl mx-auto py-24 px-6">
         <div className="max-w-3xl mx-auto mb-24 text-center">
           <h2 className="text-4xl font-serif mb-8">Desde 1985 Servindo ao Senhor</h2>
-          <div className="space-y-6 text-stone-600 leading-relaxed text-lg">
+          <div className="space-y-6 text-stone-600 leading-relaxed text-lg text-justify md:text-left">
             <p>
-              Em 1985, atendendo o chamado missionário e dirigido pelo Espírito Santo, o Pastor Armenius Clinton Holcomb juntamente com sua família, vindos dos Estados Unidos da América, iniciou o trabalho Batista Bíblico em Joinville através de um ponto de pregação.
+              Em 1985, o missionário Armenius C. Holcomb juntamente com sua família, vindos dos Estados Unidos da América, deram início a este trabalho Batista Bíblico em Joinville através de um ponto de pregação. O primeiro local escolhido para realização das reuniões, foi à rua Lages, 338 no centro do município de Joinville.
             </p>
             <p>
-              Após passar por diferentes locais nos bairros Centro e Saguaçú, o Senhor nos despertou em 1992 para nos tornarmos uma igreja organizada. Com um passo de fé, adquirimos o terreno onde iniciamos a construção da igreja com o firme propósito de sairmos do aluguel.
+              Quatro anos após ter dado o início aos trabalhos da igreja, no ano de 1989 após muita procura, transferiu o trabalho para rua Iririú, 1330, no bairro Saguaçú, local que permaneceu por apenas um ano, devido a solicitação do imóvel pelo proprietário. Com isso, no ano seguinte (1990), nos mudamos para rua São José dos Cedros, 209, no mesmo bairro, mas já com o foco em adquirirmos uma sede própria.
             </p>
             <p>
-              Em fevereiro de 1996, mudamos definitivamente para nossa sede própria na Rua Brasil, 99, onde estamos até os dias atuais. O que começou como um templo para 80 pessoas foi ampliado pela graça de Deus e hoje comporta 150 adoradores.
+              No ano de 1992, entendendo do Senhor ser aquele um momento de amadurecimento devido ao desenvolvimento dos trabalhos, Ele nos despertou a deixamos de ser um ponto de pregação para nos tornamos uma igreja organizada. Com isso demos um passo de fé e adquirimos um terreno onde iniciamos a construção da igreja com o firme propósito de saírmos do aluguel.
+            </p>
+            <p>
+              Ali permanecemos até fevereiro do ano de 1996, ano em que saímos de mudança definitiva para nossa casa própria e estamos até os dias atuais, situado na rua Brasil, 99 no bairro Saguaçú. Com a Graça de nosso Senhor Jesus Cristo o primeiro templo que construímos para algo em torno de 80 pessoas na época, teve de ser ampliado e hoje temos um templo com a capacidade para 150 pessoas.
             </p>
           </div>
         </div>
@@ -103,7 +108,7 @@ export default function About() {
               <motion.div
                 key={pastor.name}
                 whileHover={{ y: -10 }}
-                className="text-center group"
+                className="text-center group flex flex-col items-center"
               >
                 <div className="relative mb-6 inline-block">
                   <div className="absolute inset-0 bg-brand-primary rounded-full transform scale-105 opacity-0 group-hover:opacity-10 transition-opacity" />
@@ -115,7 +120,19 @@ export default function About() {
                   />
                 </div>
                 <h3 className="text-2xl font-serif font-bold mb-1">{pastor.name}</h3>
-                <p className="text-brand-primary font-medium uppercase tracking-widest text-sm">{pastor.role}</p>
+                <p className="text-brand-primary font-medium uppercase tracking-widest text-sm mb-4">{pastor.role}</p>
+                {pastor.video && (
+                  <div className="mt-4 rounded-xl overflow-hidden shadow-lg w-full max-w-sm border-2 border-brand-accent/20 bg-stone-50">
+                    <p className="text-xs text-stone-500 uppercase font-bold py-2 bg-stone-100 border-b border-stone-200">Vídeo Histórico</p>
+                    <video 
+                      src={pastor.video} 
+                      controls 
+                      className="w-full h-auto"
+                      preload="metadata"
+                      title={`Vídeo com ${pastor.name}`}
+                    />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>

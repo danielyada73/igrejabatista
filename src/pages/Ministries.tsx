@@ -5,12 +5,15 @@ import PageHero from '../components/PageHero';
 // Importar fotos dos líderes e capas
 import liderRita from '../lib/media/Rita, líder da União Feminina..jpeg';
 import liderJoici from '../lib/media/O nome da lider do coral é Joici.jpeg';
+import liderPaulo from '../lib/media/Esse é o líder do ministério da música.jpeg';
 import liderJovens from '../lib/media/Líder dos adolescentes e jovens.jpeg';
 
 // Fotos de capa temáticas (usando imagens da biblioteca ou representativas)
 import capaUniao from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.29.jpeg';
-import capaMusica from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.31.jpeg';
+import capaCoral from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.31.jpeg';
+import capaMusica from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.31 (1).jpeg';
 import capaJovens from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.33.jpeg';
+import capaAlemao from '../lib/media/WhatsApp Image 2026-03-04 at 18.13.35.jpeg';
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -28,20 +31,36 @@ const ministries = [
     image: capaUniao
   },
   {
-    title: 'Música e Coral',
+    title: 'Coral',
     leader: 'Joici',
     leaderImage: liderJoici,
     icon: <Music className="w-8 h-8" />,
-    description: 'Adoração através do louvor e desenvolvimento de talentos musicais para o serviço do Senhor.',
+    description: 'Adoração através do canto coral para o serviço do Senhor.',
+    image: capaCoral
+  },
+  {
+    title: 'Música',
+    leader: 'Paulo',
+    leaderImage: liderPaulo,
+    icon: <Music className="w-8 h-8" />,
+    description: 'Adoração através do louvor instrumental e desenvolvimento de talentos musicais.',
     image: capaMusica
   },
   {
     title: 'Jovens e Adolescentes',
-    leader: 'Liderança Jovem',
+    leader: 'Liderança',
     leaderImage: liderJovens,
     icon: <Users className="w-8 h-8" />,
     description: 'Discipulado e integração para a nova geração, vivendo o Evangelho de forma relevante.',
     image: capaJovens
+  },
+  {
+    title: 'Cultos em Alemão',
+    leader: 'A definir',
+    leaderImage: 'https://picsum.photos/seed/lider-alemao/100/100', // Placeholder
+    icon: <Users className="w-8 h-8" />,
+    description: 'Reuniões e cultos dedicados à comunidade de língua alemã.',
+    image: capaAlemao
   },
 ];
 
