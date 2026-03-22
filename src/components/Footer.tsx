@@ -20,9 +20,9 @@ export default function Footer() {
             Igreja Batista Bíblica em Joinville. Uma família para pertencer, um lugar para crescer na fé e servir ao Senhor.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
-            <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
-            <a href="#" className="hover:text-white transition-colors"><Youtube size={20} /></a>
+            <a href="https://www.facebook.com/IBBJlle" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
+            <a href="https://www.instagram.com/ibbjoficial" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+            <a href="https://www.youtube.com/@ibbjoinville" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Youtube size={20} /></a>
           </div>
         </div>
 
@@ -59,6 +59,14 @@ export default function Footer() {
           <ul className="space-y-4 text-sm opacity-80">
             <li>CNPJ: 81.144.941/0001-09</li>
             <li>Vinculada à Comunhão Batista Bíblica Nacional (CBBN)</li>
+            <li className="pt-2">
+              <div className="font-semibold text-white mb-1">Dados Bancários:</div>
+              <div>Sicredi<br />
+              Banco 748-0<br />
+              Ag. 2602<br />
+              C/c 97.938-3<br />
+              Igreja Batista Bíblica em Joinville</div>
+            </li>
             <li className="pt-2">
               <div className="flex gap-4">
                 <a href="https://instagram.com/ibbjoficial" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
