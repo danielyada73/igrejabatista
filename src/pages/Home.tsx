@@ -266,11 +266,12 @@ export default function Home() {
 
           <div className="relative max-w-5xl mx-auto">
             <div className="overflow-hidden py-10 rounded-[2.5rem]">
-              <motion.div
-                className="flex w-full"
-                animate={{ x: `-${activeIndex * (100 / videos.length)}%` }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                style={{ width: `${videos.length * 100}%` }}
+              <div
+                className="flex w-full transition-transform duration-500 ease-in-out"
+                style={{ 
+                  width: `${videos.length * 100}%`,
+                  transform: `translateX(-${activeIndex * (100 / videos.length)}%)`
+                }}
               >
                 {videos.map((src, index) => (
                   <div
@@ -313,7 +314,7 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
 
             {/* Navegação do Carrossel */}
