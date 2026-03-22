@@ -14,9 +14,11 @@ const timeline = [
   { year: '1996', title: 'Sede Própria', description: 'Mudança definitiva para a casa própria na Rua Brasil, 99. O primeiro templo construído foi posteriormente ampliado para 150 pessoas.' },
 ];
 
-const pastors = [
+type Pastor = { name: string; role: string; image: string; video?: string; };
+
+const pastors: Pastor[] = [
   { name: 'Pr. Edgar Kühn Sandri', role: 'Presidente', image: pastorEdgar },
-  { name: 'Pr. Luiz Carlos Gomes', role: 'Vice-presidente ou Co-Pastor', image: pastorLuiz, video: '/vídeo-pr-luiz.mp4' },
+  { name: 'Pr. Luiz Carlos Gomes', role: 'Vice-presidente ou Co-Pastor', image: pastorLuiz },
 ];
 
 const collaborators = [
