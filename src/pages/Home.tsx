@@ -291,7 +291,7 @@ export default function Home() {
                         src={src}
                         className="w-full h-full object-cover"
                         loop
-                        muted={isMuted}
+                        muted={isMuted || activeIndex !== index}
                         autoPlay
                         playsInline
                       />
