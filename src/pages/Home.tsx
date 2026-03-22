@@ -264,45 +264,54 @@ export default function Home() {
             <p className="text-stone-500">Momentos especiais e mensagens de nossa comunidade.</p>
           </div>
 
-          <div className="relative">
-            <div className="flex gap-6 overflow-hidden py-10">
+          <div className="relative max-w-5xl mx-auto">
+            <div className="overflow-hidden py-10 rounded-[2.5rem]">
               <motion.div
-                className="flex gap-6"
-                animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 1.5}rem)` }}
+                className="flex w-full"
+                animate={{ x: `-${activeIndex * (100 / videos.length)}%` }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                style={{ width: `${videos.length * 100}%` }}
               >
                 {videos.map((src, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    className={`relative shrink-0 w-full md:w-[70%] aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 transition-all duration-500 ${activeIndex === index ? 'border-brand-primary scale-105' : 'border-transparent opacity-50 grayscale scale-95'
-                      }`}
+                    className="w-full shrink-0 px-2 md:px-6"
+                    style={{ width: `${100 / videos.length}%` }}
                   >
-                    <video
-                      ref={(el) => (videoRefs.current[index] = el)}
-                      src={src}
-                      className="w-full h-full object-cover"
-                      loop
-                      muted={isMuted}
-                      autoPlay
-                      playsInline
-                    />
-
-                    {/* Overlay de Controle */}
                     <div
-                      className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
-                      onClick={() => setIsMuted(!isMuted)}
+                      className={`relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl border-4 transition-all duration-500 w-full ${
+                        activeIndex === index 
+                          ? 'border-brand-primary scale-100 opacity-100 z-10' 
+                          : 'border-transparent opacity-50 grayscale scale-95'
+                      }`}
                     >
-                      <div className="bg-white/20 backdrop-blur-md p-6 rounded-full border border-white/30 text-white">
-                        {isMuted ? <VolumeX size={32} /> : <Volume2 size={32} />}
-                      </div>
-                    </div>
+                      <video
+                        ref={(el) => (videoRefs.current[index] = el)}
+                        src={src}
+                        className="w-full h-full object-cover"
+                        loop
+                        muted={isMuted}
+                        autoPlay
+                        playsInline
+                      />
 
-                    {isMuted && activeIndex === index && (
-                      <div className="absolute bottom-6 right-6 bg-brand-primary/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 pointer-events-none">
-                        <VolumeX size={16} /> Clique para Ativar Áudio
+                      {/* Overlay de Controle */}
+                      <div
+                        className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
+                        onClick={() => setIsMuted(!isMuted)}
+                      >
+                        <div className="bg-white/20 backdrop-blur-md p-6 rounded-full border border-white/30 text-white">
+                          {isMuted ? <VolumeX size={32} /> : <Volume2 size={32} />}
+                        </div>
                       </div>
-                    )}
-                  </motion.div>
+
+                      {isMuted && activeIndex === index && (
+                        <div className="absolute bottom-6 right-6 bg-brand-primary/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 pointer-events-none">
+                          <VolumeX size={16} /> Clique para Ativar Áudio
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 ))}
               </motion.div>
             </div>
