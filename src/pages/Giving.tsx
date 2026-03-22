@@ -5,7 +5,7 @@ import PageHero from '../components/PageHero';
 
 export default function Giving() {
   const [copied, setCopied] = useState(false);
-  const pixKey = "00.000.000/0001-00"; // Placeholder CNPJ
+  const pixKey = "81.144.941/0001-09"; // Placeholder CNPJ
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(pixKey);
@@ -71,23 +71,23 @@ export default function Giving() {
             <div className="space-y-6">
               <div className="flex justify-between border-b border-stone-100 pb-4">
                 <span className="text-stone-400 text-sm uppercase tracking-widest">Banco</span>
-                <span className="font-bold text-stone-800">Banco do Brasil (001)</span>
+                <span className="font-bold text-stone-800">Sicredi (748-0)</span>
               </div>
               <div className="flex justify-between border-b border-stone-100 pb-4">
                 <span className="text-stone-400 text-sm uppercase tracking-widest">Agência</span>
-                <span className="font-bold text-stone-800">0000-0</span>
+                <span className="font-bold text-stone-800">2602</span>
               </div>
               <div className="flex justify-between border-b border-stone-100 pb-4">
                 <span className="text-stone-400 text-sm uppercase tracking-widest">Conta Corrente</span>
-                <span className="font-bold text-stone-800">00000-0</span>
+                <span className="font-bold text-stone-800">97.938-3</span>
               </div>
               <div className="flex justify-between border-b border-stone-100 pb-4">
                 <span className="text-stone-400 text-sm uppercase tracking-widest">Favorecido</span>
-                <span className="font-bold text-stone-800">Igreja Batista Bíblica</span>
+                <span className="font-bold text-stone-800">Igreja Batista Bíblica em Joinville</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-stone-400 text-sm uppercase tracking-widest">CNPJ</span>
-                <span className="font-bold text-stone-800">00.000.000/0001-00</span>
+                <span className="font-bold text-stone-800">81.144.941/0001-09</span>
               </div>
             </div>
           </motion.div>
